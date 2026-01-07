@@ -1,0 +1,50 @@
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body {
+  background:
+    radial-gradient(1400px circle at 12% 10%, rgba(255, 214, 225, 0.55), transparent 60%),
+    radial-gradient(1300px circle at 90% 18%, rgba(200, 235, 255, 0.55), transparent 60%),
+    radial-gradient(1400px circle at 25% 95%, rgba(210, 255, 230, 0.50), transparent 60%),
+    linear-gradient(180deg, #fbfbff 0%, #f4f7ff 100%);
+}
+
+/* Pawprint overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  pointer-events: none;
+  opacity: 0.14;
+  transform: rotate(-10deg) scale(1.1); 
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='140'%20height='140'%3E%3Ctext%20x='18'%20y='74'%20font-size='44'%3E%F0%9F%90%BE%3C/text%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 300px 300px;
+  animation: pawsDrift 18s linear infinite;
+  filter: blur(0.7px);
+}
+
+
+@keyframes pawsDrift {
+  from { background-position: 0 0; }
+  to   { background-position: 280px 280px; }
+}
+
+body.swipe-lock {
+  overflow: hidden;              
+  overscroll-behavior: none;    
+}
+
+#root {
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+

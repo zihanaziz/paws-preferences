@@ -1,0 +1,199 @@
+.page {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --appW: min(420px, 92vw);
+  /* glass */
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 22px;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.10);
+}
+
+
+.topbar {
+  width: var(--appW);
+  text-align: center;
+}
+
+
+.topbar .title {
+  font-size: 20px;
+  font-weight: 800;
+}
+.topbar .sub {
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+.status{
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 56px;
+}
+
+.catLoader{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+}
+
+.catDot{
+  display: inline-block;
+  transform: translateY(0) scale(0.6);
+  opacity: 0.35;
+  animation: catPop 1s infinite ease-in-out;
+}
+
+.catDot:nth-child(1){ animation-delay: 0s; }
+.catDot:nth-child(2){ animation-delay: 0.15s; }
+.catDot:nth-child(3){ animation-delay: 0.3s; }
+
+@keyframes catPop{
+  0%, 70%, 100% { transform: translateY(0) scale(0.6); opacity: 0.35; }
+  25% { transform: translateY(-8px) scale(1.05); opacity: 1; }
+}
+
+/* screen-reader only text */
+.srOnly{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+.cardArea {
+  position: relative;
+  width: var(--appW);
+  height: min(560px, 65vh);
+  margin: 0 auto;
+}
+
+.swipe {
+  position: absolute;
+  inset: 0;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 12px 10px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.badgeRow {
+  display: flex;
+  padding: 12px;
+}
+.badge {
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn {
+  border: none;
+  padding: 12px 14px;
+  border-radius: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn.like {
+  background: #eaffea;
+}
+.btn.dislike {
+  background: #ffecec;
+}
+.btn.restart {
+  margin-top: 14px;
+  width: 100%;
+  background: #efefef;
+}
+
+.progress {
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.cardArea {
+  touch-action: none; 
+}
+
+
+.summary {
+  width: var(--appW);
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 18px;
+  background: #fafafa;
+}
+
+.grid {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.thumb {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.screenFlash{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 9999;
+}
+
+.screenFlash.like{
+  background: rgba(24, 160, 88, 0.25);
+  animation: screenFlash 220ms ease-out;
+}
+
+.screenFlash.nope{
+  background: rgba(208, 48, 80, 0.25);
+  animation: screenFlash 220ms ease-out;
+}
+
+@keyframes screenFlash{
+  0% { opacity: 0; }
+  30% { opacity: 1; }
+  100% { opacity: 0; }
+}
