@@ -165,6 +165,9 @@ export default function App() {
                 key={cat.id}
                 preventSwipe={["up", "down"]}
                 onSwipe={(dir) => handleSwipe(dir, cat, index)}
+                swipeRequirementType="velocity"
+                swipeThreshold={0.25}
+                flickOnSwipe={true}
               >
                 <div className="card" style={{ backgroundImage: `url(${cat.url})` }}>
                 </div>
