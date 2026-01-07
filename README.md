@@ -1,4 +1,4 @@
-# Paws & Preferences 🐾
+# Paws & Preferences
 A single-page web app that helps users discover what kind of cats they prefer — swipe right to **Like** and swipe left to **Dislike**, then view a summary of your favourites.
 
 ## Live Demo
